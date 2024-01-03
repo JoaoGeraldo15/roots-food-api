@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <include file="/db/changes/V001_create_table_kitchen.xml" />
+    <include file="/db/changes/V002_create_table_restaurant.xml" />
+
+    <include file="/db/insert/V001_insert_into_kitchen.sql"/>
+    <include file="/db/insert/V002_insert_into_restaurant.sql"/>
+    <!--    <include file="/db/insert/V002_insert_into_status_ativo.sql"/>-->
+    <!--    <include file="/db/insert/V003_insert_into_estado.sql"/>-->
+    <!--    <include file="/db/insert/V004_insert_into_cidade.sql"/>-->
+    <!--    <include file="/db/insert/V005_insert_into_endereco.sql"/>-->
+<!--    <include file="/db/insert/V007_insert_into_forma_pagamento.sql"/>-->
+<!--    <include file="/db/insert/V008_insert_into_status_pedido.sql"/>-->
+</databaseChangeLog>
