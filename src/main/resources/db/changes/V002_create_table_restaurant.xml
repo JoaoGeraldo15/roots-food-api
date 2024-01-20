@@ -30,7 +30,7 @@
             </column>
             <column name="UPDATE_DATE" type="DATETIME" remarks="Records the restaurant's update date."></column>
 
-            <column name="KITCHEN_FK" type="INT">
+            <column name="KITCHEN_ID" type="INT">
                 <constraints nullable="false" foreignKeyName="KITCHEN_RESTAURANT_FK" references="KITCHEN(ID)"/>
             </column>
         </createTable>

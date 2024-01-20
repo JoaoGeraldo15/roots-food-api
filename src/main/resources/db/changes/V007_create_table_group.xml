@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+    <changeSet id="2024.01.20-1" author="joao.geraldo">
+        <createTable tableName="GROUP">
+            <column name="ID" type="INT" remarks="PK">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="ID_PERMISSION" type="INT" remarks="">
+                <constraints nullable="false" foreignKeyName="PERMISSION_GROUP_FK" references="PERMISSION(ID)"/>
+            </column>
+
+            <column name="NAME" type="VARCHAR(255)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement columnDataType="INT"
+                          columnName="ID"
+                          incrementBy="1"
+                          startWith="1"
+                          tableName="GROUP"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -7,13 +7,13 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <include file="/db/changes/V001_create_table_kitchen.xml" />
     <include file="/db/changes/V002_create_table_restaurant.xml" />
+    <include file="/db/changes/V003_create_table_payment_forms.xml" />
+    <include file="/db/changes/V004_create_table_state.xml" />
+    <include file="/db/changes/V005_create_table_city.xml" />
+    <include file="/db/changes/V006_create_table_permission.xml" />
+    <include file="/db/changes/V007_create_table_group.xml" />
+    <include file="/db/changes/V008_create_table_user.xml" />
 
     <include file="/db/insert/V001_insert_into_kitchen.sql"/>
     <include file="/db/insert/V002_insert_into_restaurant.sql"/>
-    <!--    <include file="/db/insert/V002_insert_into_status_ativo.sql"/>-->
-    <!--    <include file="/db/insert/V003_insert_into_estado.sql"/>-->
-    <!--    <include file="/db/insert/V004_insert_into_cidade.sql"/>-->
-    <!--    <include file="/db/insert/V005_insert_into_endereco.sql"/>-->
-<!--    <include file="/db/insert/V007_insert_into_forma_pagamento.sql"/>-->
-<!--    <include file="/db/insert/V008_insert_into_status_pedido.sql"/>-->
 </databaseChangeLog>
