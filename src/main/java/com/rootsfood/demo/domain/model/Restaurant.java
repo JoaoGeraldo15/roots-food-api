@@ -7,6 +7,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "RESTAURANT")
@@ -41,6 +43,11 @@ public class Restaurant {
     private LocalDateTime updateDate;
 
     @ManyToOne
-    @JoinColumn(name = "KITCHEN_FK")
+    @JoinColumn(name = "KITCHEN_ID")
     private Kitchen kitchen;
+
+    @ManyToMany
+    @JoinTable(name = "RESTAURANT_PAYMENT_FORM", joinColumns = @JoinColumn(name = "RESTAURANT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PAYMENT_FORM_ID"))
+    private List<PaymentForm> paymentForm = new ArrayList<>();
 }

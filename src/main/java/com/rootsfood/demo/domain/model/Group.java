@@ -7,18 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "KITCHEN")
+@Table(name = "GROUP")
 @Getter @Setter
 @EqualsAndHashCode(of = "id")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Kitchen {
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +25,6 @@ public class Kitchen {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany
-    private List<Restaurant> restaurants = new ArrayList<>();
+    @ManyToOne
+    private Permission permission;
 }
