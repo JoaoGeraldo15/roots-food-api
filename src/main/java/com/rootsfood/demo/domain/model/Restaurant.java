@@ -46,6 +46,9 @@ public class Restaurant {
     @JoinColumn(name = "KITCHEN_ID")
     private Kitchen kitchen;
 
+//    @Embedded
+//    private Address address;
+
     @ManyToMany
     @JoinTable(name = "RESTAURANT_PAYMENT_FORM", joinColumns = @JoinColumn(name = "RESTAURANT_ID"),
             inverseJoinColumns = @JoinColumn(name = "PAYMENT_FORM_ID"))
