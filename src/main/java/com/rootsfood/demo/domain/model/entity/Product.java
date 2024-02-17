@@ -1,4 +1,4 @@
-package com.rootsfood.demo.domain.model;
+package com.rootsfood.demo.domain.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,24 +25,25 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name ="NAME" )
+    @Column(name ="NAME", nullable = false)
     private String name;
 
-    @Column(name ="DESCRIPTION" )
+    @Column(name ="DESCRIPTION", nullable = false)
     private String description;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
 
-    @Column(name = "IS_ACTIVED")
+    @Column(name = "IS_ACTIVED", nullable = false)
     private Boolean isActived;
 
-    @ManyToOne
-    @JoinColumn(name = "RESTAURANT_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "product")

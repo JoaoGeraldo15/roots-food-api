@@ -1,11 +1,6 @@
-package com.rootsfood.demo.domain.model;
+package com.rootsfood.demo.domain.model.entity;
 
-
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "STATE")
+@Table(name = "PERMISSION")
 @Getter @Setter
 @EqualsAndHashCode(of = "id")
 @AllArgsConstructor
 @NoArgsConstructor
-public class State {
+public class Permission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +23,7 @@ public class State {
 
     @Column(name = "NAME")
     private String name;
+
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
 }
