@@ -13,7 +13,13 @@
     <include file="/db/changes/V006_create_table_permission.xml" />
     <include file="/db/changes/V007_create_table_group.xml" />
     <include file="/db/changes/V008_create_table_user.xml" />
+    <include file="/db/changes/V009_create_table_order.xml" />
+    <include file="/db/changes/V010_create_table_product.xml" />
+    <include file="/db/changes/V011_create_table_address.xml" />
 
     <include file="/db/insert/V001_insert_into_kitchen.sql"/>
-    <include file="/db/insert/V002_insert_into_restaurant.sql"/>
+    <include file="/db/insert/V002_insert_into_state.sql"/>
+    <include file="/db/insert/V003_insert_into_city.sql"/>
+    <include file="/db/insert/V004_insert_into_address.sql"/>
+    <include file="/db/insert/V005_insert_into_restaurant.sql"/>
 </databaseChangeLog>

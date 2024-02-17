@@ -15,7 +15,7 @@
             <column name="NAME" type="VARCHAR(255)" remarks="">
                 <constraints nullable="false"/>
             </column>
-            <column name="ID_STATE" type="INT" remarks="ID from STATE table">
+            <column name="STATE_ID" type="INT" remarks="ID from STATE table">
                 <constraints nullable="false" foreignKeyName="STATE_CITY_FK" references="STATE(ID)"/>
             </column>
         </createTable>

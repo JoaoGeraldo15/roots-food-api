@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+    <changeSet id="2024.02.12-1" author="joao.geraldo">
+        <createTable tableName="PRODUCT">
+            <column name="ID" type="INT" remarks="PK">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)">
+                <constraints/>
+            </column>
+            <column name="PRICE" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ACTIVED" type="INT" remarks="Status that indicates whether the product is available to sell or not." defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement columnDataType="INT"
+                          columnName="ID"
+                          incrementBy="1"
+                          startWith="1"
+                          tableName="PRODUCT"/>
+    </changeSet>
+
+    <changeSet id="2024.02.12-2" author="joao.geraldo">
+        <createTable tableName="PRODUCT_PHOTO">
+            <column name="ID" type="INT" remarks="PK">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="FILENAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTENT_TYPE" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SIZE" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT_ID" type="INT" remarks="Product FK.">
+                <constraints nullable="false" foreignKeyName="PRODUCT_PRODUCT_PHOTO" references="PRODUCT(ID)"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement columnDataType="INT"
+                          columnName="ID"
+                          incrementBy="1"
+                          startWith="1"
+                          tableName="PRODUCT_PHOTO"/>
+    </changeSet>
+
+</databaseChangeLog>

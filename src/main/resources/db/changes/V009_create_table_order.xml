@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+    <changeSet id="2024.02.10-1" author="joao.geraldo">
+        <createTable tableName="ORDER">
+            <column name="ID" type="INT" remarks="PK">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="SUBTOTAL" type="DECIMAL" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_FEE" type="DECIMAL(10, 2)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_AMOUNT" type="DECIMAL(10, 2)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATION_DATE" type="DATETIME" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_DATE" type="DATETIME" remarks="">
+            </column>
+            <column name="CANCELLATION_DATE" type="DATETIME" remarks="">
+            </column>
+            <column name="STATUS" type="INT" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PAYMENT_FORM_ID" type="INT" remarks="Payment form FK.">
+                <constraints nullable="false" foreignKeyName="PAYMENT_FORM_ORDER_FK" references="PAYMENT_FORM(ID)"/>
+            </column>
+            <column name="RESTAURANT_ID" type="INT" remarks="Restaurant FK.">
+                <constraints nullable="false" foreignKeyName="RESTAURANT_ORDER_FK" references="RESTAURANT(ID)"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement columnDataType="INT"
+                          columnName="ID"
+                          incrementBy="1"
+                          startWith="1"
+                          tableName="ORDER"/>
+    </changeSet>
+
+    <changeSet id="2024.02.10-2" author="joao.geraldo">
+        <createTable tableName="ORDER_ITEM">
+            <column name="ID" type="INT" remarks="PK">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="QUANTITY" type="INT" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UNIT_PRICE" type="DECIMAL(10, 2)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_PRICE" type="DECIMAL(10, 2)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OBSERVATION" type="VARCHAR(255)" remarks="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_ID" type="INT" remarks="Order FK.">
+                <constraints nullable="false" foreignKeyName="ORDER_ORDER_ITEM_FK" references="ORDER(ID)"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement columnDataType="INT"
+                          columnName="ID"
+                          incrementBy="1"
+                          startWith="1"
+                          tableName="ORDER_ITEM"/>
+    </changeSet>
+
+</databaseChangeLog>
