@@ -22,13 +22,13 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(EntityInUseExeception.class)
-    public ResponseEntity<StandardError> entidadeEmUsoHandler(EntityInUseExeception ex, HttpServletRequest request) {
+    public ResponseEntity<StandardError> entityInUseHandler(EntityInUseExeception ex, HttpServletRequest request) {
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.CONFLICT.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<StandardError> entidadeNaoEncontrada(EntityNotFoundException ex, HttpServletRequest request) {
+    public ResponseEntity<StandardError> entityNotFoundHandler(EntityNotFoundException ex, HttpServletRequest request) {
         StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
